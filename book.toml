@@ -1,0 +1,6 @@
+[book]
+authors = ["Jesus Flores Acuña"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Linux Programming"
