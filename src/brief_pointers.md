@@ -59,3 +59,22 @@ struct passwd
 Pero ahora, es importante observar que la notación con la que estamos accediendo al contenido de
 la estructura (después de verificar que no es un apuntador nulo), es con el operador de acceso
 indirecto: _"->"_, sin tener que desreferenciar de alguna manera y acceder mediente el operador _"."_,
+
+# Apuntadores a funciones
+
+En nuestro código de investigación nos encontramos con una funcion muy interesante. `atexit`, al parecer
+es una función que nos ayuda a hacer algo antes de salir del programa. Al buscar la definición de esta
+función podemos ver lo siguiente:
+
+```c
+{{#include ../code/coreutils/gnulib/lib/atexit.c}}
+```
+
+La función recibe una argumento algo diferente a lo que estamos acostumbrados. En este caso `void (*f) (void)`
+se refiere a un apuntador a una función con ciertas caracteristicas, void como retorno y void como parametros.
+En resumen una función sin retorno y sin parametros pero también se puede describir otro tipo de funciones con
+retornos y parametros diferentes.
+
+Este tipo de funciones son muy utilizadas en el manejo de callbacks cuando la programación es orientada a eventos
+o la seleción dinámica de funciones a ejecutar, también en algunas ocaciones hace más flexible el código y
+reutilizable.
